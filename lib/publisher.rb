@@ -3,8 +3,9 @@ require 'redis'
 
 @redis = Redis.new(:host => '127.0.0.1', :post => 6379)
 
+filename = "sample.log"
 
-File.open("/Users/Caleb/Documents/Rails_Projects/oneBIGvoice/log/development.log") do |log|
+File.open(filename) do |log|
   log.extend(File::Tail)      
   log.backward(10)    
   log.tail do |line|    
